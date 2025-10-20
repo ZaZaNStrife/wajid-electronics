@@ -1,0 +1,117 @@
+.footer {
+  background-color: #0d0d0d;
+  color: #ccc;
+  padding: 60px 40px 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Company Info --- */
+.footer-section.about {
+  flex: 1.2;
+  min-width: 260px;
+}
+
+.footer-section.about h3 {
+  color: #00bcd4;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.footer-section.about p {
+  line-height: 1.6;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* --- Quick Links --- */
+.footer-section.links {
+  flex: 0.8;
+  min-width: 200px;
+}
+
+.footer-section.links h4 {
+  color: #00bcd4;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.footer-section.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section.links li {
+  margin-bottom: 10px;
+}
+
+.footer-section.links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section.links a:hover {
+  color: #00bcd4;
+}
+
+/* --- Contact Info --- */
+.footer-section.contact {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-section.contact h4 {
+  color: #00bcd4;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.footer-section.contact p {
+  margin: 8px 0;
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-section.contact strong {
+  color: #00bcd4;
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+  padding-top: 15px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin-bottom: 30px;
+  }
+
+  .footer-section.about p,
+  .footer-section.contact p {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,106 @@
+/* === Base Section === */
+.qna-section {
+  text-align: center;
+  padding: 80px 40px;
+  color: white;
+  background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+}
+
+.qna-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #00bcd4;
+}
+
+.qna-subtitle {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+/* === Container === */
+.qna-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* === QnA Item === */
+.qna-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-left: 4px solid transparent;
+}
+
+.qna-item.active {
+  background: rgba(0, 188, 212, 0.15);
+  border-left: 4px solid #00bcd4;
+}
+
+.qna-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.qna-question h3 {
+  font-size: 1.1rem;
+  color: #00eaff;
+  transition: color 0.3s ease;
+}
+
+.qna-item:hover .qna-question h3 {
+  color: #03e9f4;
+}
+
+.qna-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bcd4;
+  transition: transform 0.3s ease;
+}
+
+.qna-item.active .qna-icon {
+  transform: rotate(180deg);
+}
+
+/* === Answer Box === */
+.qna-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.qna-answer p {
+  margin-top: 15px;
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* === Hover Glow === */
+.qna-item:hover {
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .qna-section {
+    padding: 60px 20px;
+  }
+
+  .qna-section h2 {
+    font-size: 2rem;
+  }
+
+  .qna-container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,130 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111;
+  color: white;
+  padding: 60px 80px;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 50%;
+  animation: fadeInLeft 1s ease;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 50px;
+  margin-left: 5px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: #00bcd4;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0097a7;
+  color: #000000;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #426266;
+}
+
+.btn-secondary:hover {
+  background-color: #1384d5;
+  color: #f1e3e3;
+}
+
+/* Image Slider Section */
+.hero-slider {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease;
+}
+
+.slider-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px;
+    height: auto;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .hero-slider img {
+    width: 100%;
+    max-width: 400px;
+  }
+}

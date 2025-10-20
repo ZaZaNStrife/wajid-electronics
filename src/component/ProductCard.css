@@ -1,0 +1,153 @@
+.products-section {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
+  color: #fff;
+  text-align: center;
+  transition: background 0.5s ease;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.product-header h2 {
+  font-size: 2rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+
+/* Search + Cart */
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-cart input {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-cart input:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #00eaff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.8rem;
+}
+
+/* Product Grid (3 Columns) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Product Card */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #00eaff55;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.card-body .price {
+  color: #00eaff;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.btn-cart {
+  padding: 10px 25px;
+  background: #00eaff;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-cart:hover {
+  background: #009dc4;
+  color: white;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+.no-results {
+  color: #aaa;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Responsive: 2 columns for tablets */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 column for phones */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .product-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-cart {
+    justify-content: center;
+  }
+}

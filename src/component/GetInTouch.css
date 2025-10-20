@@ -1,0 +1,114 @@
+.contact-section {
+  background-color: #0a0a0a;
+  color: white;
+  padding: 100px 60px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* === Left Side Info === */
+.contact-info {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact-info h2 {
+  font-size: 2.5rem;
+  color: #00bcd4;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.contact-details p {
+  color: #bbb;
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+/* === Right Side Form === */
+.contact-form {
+  flex: 1;
+  min-width: 320px;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.1);
+}
+
+.contact-form h3 {
+  font-size: 1.8rem;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+/* === Form Fields === */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  padding: 12px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #00bcd4;
+}
+
+/* === Submit Button === */
+.submit-btn {
+  background: linear-gradient(90deg, #00bcd4, #03a9f4);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #03a9f4, #00e5ff);
+  transform: scale(1.05);
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-form, .contact-info {
+    width: 100%;
+  }
+}
