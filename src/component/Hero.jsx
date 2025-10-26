@@ -7,30 +7,47 @@ import hero3 from "../assets/hero3.jpeg";
 function Hero() {
   const images = [hero1, hero2, hero3];
   const [currentImage, setCurrentImage] = useState(0);
+  const [fade, setFade] = useState(true);
 
-  // Auto-slide effect
+  // 🌀 Auto-slide with fade transition
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+      setFade(false);
+      setTimeout(() => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+        setFade(true);
+      }, 400); // fade out before switching
+    }, 4000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
     <section id="hero" className="hero">
+      {/* 🌟 HERO CONTENT */}
       <div className="hero-content">
-        <h1>Welcome to Gujranwala Electronics & Crockery</h1>
+        <h1>
+          Welcome to <br />
+          <span className="gradient-text">Gujranwala Electronics & Crockery</span>
+        </h1>
         <p className="hero-description">
-          Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
+          Experience the fusion of innovation and style. Explore top-quality electronics, 
+          home appliances, and elegant crockery designed to elevate your everyday living.
         </p>
+
         <div className="hero-buttons">
           <button className="btn-primary">Get Started</button>
-          <button className="btn-secondary">Read More</button>
+          <button className="btn-secondary">Learn More</button>
         </div>
       </div>
 
+      {/* 🖼️ IMAGE SLIDER */}
       <div className="hero-slider">
-        <img src={images[currentImage]} alt="Tech Products" className="slider-image" />
+        <img
+          key={currentImage}
+          src={images[currentImage]}
+          alt="Product Showcase"
+          className={`slider-image ${fade ? "fade-in" : "fade-out"}`}
+        />
       </div>
     </section>
   );

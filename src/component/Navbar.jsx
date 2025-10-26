@@ -1,77 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Smooth scroll to section
-  const handleScrollTo = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(id);
-      closeMenu();
-    }
-  };
-
-  // Track active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["hero", "about", "products", "clients", "team", "contact"];
-      const scrollPos = window.scrollY + 150;
-
-      for (let id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/products", label: "Products" },
+    { path: "/clients", label: "Clients" },
+    { path: "/categories", label: "Categories" },
+    { path: "/team", label: "Team" },
+    { path: "/qna", label: "Q&A" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <nav className="navbar">
-      {/* Logo */}
-      <div className="logo" onClick={() => handleScrollTo("hero")}>
-        <span className="highlight">Gujranwala</span> Electronics
+      <div className="logo">
+        <Link to="/" onClick={closeMenu}>
+          <span className="highlight">Gujranwala</span> Electronics
+        </Link>
       </div>
 
-      {/* Navigation Links */}
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
         <ul>
-          {[
-            { id: "hero", label: "Home" },
-            { id: "about", label: "About" },
-            { id: "products", label: "Products" },
-            { id: "clients", label: "Clients" },
-            { id: "team", label: "Team" },
-            { id: "contact", label: "Contact" },
-          ].map((item) => (
+          {navLinks.map((item) => (
             <li
-              key={item.id}
-              className={activeSection === item.id ? "active" : ""}
+              key={item.path}
+              className={location.pathname === item.path ? "active" : ""}
             >
-              <button onClick={() => handleScrollTo(item.id)}>
+              <Link to={item.path} onClick={closeMenu}>
                 {item.label}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Hamburger Menu */}
       <div
         className={`menu-toggle ${menuOpen ? "open" : ""}`}
         onClick={toggleMenu}

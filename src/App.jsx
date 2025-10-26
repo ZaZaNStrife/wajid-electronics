@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-// Import all components
+// Import components
 import Navbar from "./component/Navbar";
 import Hero from "./component/Hero";
 import ProductCards from "./component/ProductCard";
@@ -14,59 +15,30 @@ import GetInTouch from "./component/GetInTouch";
 import Footer from "./component/Footer";
 
 function App() {
-  // Ensure page always starts at the top when loaded
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="App">
-      {/* Navbar */}
-      <Navbar />
+    <Router>
+      <div className="App">
+        <Navbar />
 
-      {/* Hero Section */}
-      <section id="hero" className="section">
-        <Hero />
-      </section>
+        {/* Define all routes */}
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<ProductCards />} />
+          <Route path="/clients" element={<ClientPage />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/team" element={<ExperienceTeam />} />
+          <Route path="/qna" element={<QnA />} />
+          <Route path="/contact" element={<GetInTouch />} />
+        </Routes>
 
-      {/* Products Section */}
-      <section id="products" className="section">
-        <ProductCards />
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="section">
-        <About />
-      </section>
-
-      {/* Clients Section */}
-      <section id="clients" className="section">
-        <ClientPage />
-      </section>
-
-      {/* Categories Section */}
-      <section id="categories" className="section">
-        <Categories />
-      </section>
-
-      {/* Experience Team Section */}
-      <section id="team" className="section">
-        <ExperienceTeam />
-      </section>
-
-      {/* Q&A Section */}
-      <section id="qna" className="section">
-        <QnA />
-      </section>
-
-      {/* Get In Touch Section */}
-      <section id="contact" className="section">
-        <GetInTouch />
-      </section>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,69 +1,145 @@
+/* 🌐 CLIENTS SECTION */
 .clients-section {
-  background-color: #111;
+  background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a 60%, #000);
   color: white;
-  padding: 80px 60px;
+  padding: 100px 6%;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ✨ Glowing Gradient Orbs */
+.clients-section::before,
+.clients-section::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.clients-section::before {
+  background: #00eaff;
+  top: -100px;
+  left: -100px;
+}
+
+.clients-section::after {
+  background: #1de9b6;
+  bottom: -120px;
+  right: -120px;
+}
+
+/* 🔹 HEADER */
 .clients-section h2 {
-  font-size: 2.5rem;
-  color: #00bcd4;
+  font-size: 2.8rem;
+  color: #00eaff;
   margin-bottom: 20px;
+  text-shadow: 0 0 15px #00eaff, 0 0 30px rgba(0, 234, 255, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .clients-intro {
   max-width: 700px;
-  margin: 0 auto 50px;
+  margin: 0 auto 60px;
   color: #ccc;
-  line-height: 1.6;
+  line-height: 1.8;
   font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* Client Grid */
+/* 💠 CLIENT GRID */
 .client-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 35px;
   justify-items: center;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Client Card */
+/* 💎 CLIENT CARD */
 .client-card {
-  background-color: #1a1a1a;
-  border-radius: 15px;
-  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 25px;
   width: 100%;
-  max-width: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Glowing Edge */
+.client-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #00eaff, #1de9b6, transparent 90%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.client-card:hover::before {
+  opacity: 1;
+}
+
+/* Hover Motion */
 .client-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 35px rgba(0, 234, 255, 0.4), 0 0 60px rgba(29, 233, 182, 0.25);
 }
 
+/* 🖼️ LOGO */
 .client-card img {
   width: 100%;
-  height: 100px;
+  height: 120px;
   object-fit: contain;
-  margin-bottom: 15px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  margin-bottom: 20px;
+  filter: grayscale(100%) brightness(0.8);
+  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
 .client-card:hover img {
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.1);
 }
 
+/* 🏷️ CLIENT NAME */
 .client-card h4 {
-  color: #00bcd4;
+  color: #00eaff;
   margin-top: 10px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(0, 234, 255, 0.5);
 }
 
-/* Responsive Design */
+/* 💬 Optional Tagline */
+.client-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+/* 🌍 RESPONSIVE */
 @media (max-width: 1024px) {
   .client-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -73,5 +149,9 @@
 @media (max-width: 700px) {
   .client-grid {
     grid-template-columns: 1fr;
+  }
+
+  .clients-section {
+    padding: 70px 20px;
   }
 }
